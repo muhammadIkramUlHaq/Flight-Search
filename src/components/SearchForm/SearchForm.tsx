@@ -2,9 +2,9 @@ import { Autocomplete, Box, TextField, Typography } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import type { Airport } from "@/types/airport";
 import { airports } from "@/data/mockFlights";
-import { PrimaryButton } from "@/styles/commonStyles";
+import { PrimaryButton } from "@/styles/global";
+import type { Airport } from "@/types";
 import { FormContainer, HeroSection, Wrapper } from "./SearchForm.styles";
 
 const SearchForm = () => {

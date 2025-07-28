@@ -13,7 +13,7 @@ import {
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import FlightLandIcon from "@mui/icons-material/FlightLand";
 import FlightTakeOffIcon from "@mui/icons-material/FlightTakeoff";
-import { FlexRow, PrimaryButton } from "@/styles/commonStyles";
+import { FlexRow, PrimaryButton } from "@/styles/global";
 import {
   StyledCard,
   AirlineStack,
