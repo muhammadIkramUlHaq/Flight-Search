@@ -8,12 +8,6 @@ export const StyledTopBar = styled(Paper)(({ theme }) => ({
   zIndex: 10,
 }));
 
-export const FlexRow = styled(Box)({
-  display: "flex",
-  justifyContent: "space-between",
-  alignItems: "center",
-});
-
 export const LeftGroup = styled(Box)({
   display: "flex",
   alignItems: "center",

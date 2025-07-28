@@ -1,12 +1,11 @@
 import {
-  Box,
-  Paper,
-  Typography,
   FormControl,
   RadioGroup,
   FormControlLabel,
   Radio,
+  Typography,
 } from "@mui/material";
+import { SidebarWrapper, Section, SectionTitle } from "./FilterSidebar.styles";
 
 interface FilterSidebarProps {
   selectedStops: string;
@@ -20,10 +19,10 @@ const FilterSidebar = ({
   stopCounts,
 }: FilterSidebarProps) => {
   return (
-    <Paper elevation={1} sx={{ p: 3, minWidth: 260 }}>
+    <SidebarWrapper elevation={1}>
       <Typography variant="h6">Filters</Typography>
-      <Box mt={2}>
-        <Typography fontWeight="bold">Number of Stops</Typography>
+      <Section>
+        <SectionTitle>Number of Stops</SectionTitle>
         <FormControl component="fieldset">
           <RadioGroup
             value={selectedStops}
@@ -51,8 +50,8 @@ const FilterSidebar = ({
             />
           </RadioGroup>
         </FormControl>
-      </Box>
-    </Paper>
+      </Section>
+    </SidebarWrapper>
   );
 };
 

@@ -4,10 +4,9 @@ import FmdGoodOutlinedIcon from "@mui/icons-material/FmdGoodOutlined";
 import FilterAltOutlinedIcon from "@mui/icons-material/FilterAltOutlined";
 import { Typography } from "@mui/material";
 import { getAirportLabel } from "@/utils/utils";
-import { SelectButton } from "@/components/FlightCard/FlightCard.styles";
+import { FlexRow, PrimaryButton } from "@/styles/commonStyles";
 import {
   BackButton,
-  FlexRow,
   LeftGroup,
   LocationGroup,
   StyledTopBar,
@@ -40,14 +39,14 @@ const TopBar = ({ origin, destination, onToggle }: TopBarProps) => {
           </LocationGroup>
         </LeftGroup>
 
-        <SelectButton
+        <PrimaryButton
           variant="contained"
           color="success"
           startIcon={<FilterAltOutlinedIcon />}
           onClick={onToggle}
         >
           Filters
-        </SelectButton>
+        </PrimaryButton>
       </FlexRow>
     </StyledTopBar>
   );

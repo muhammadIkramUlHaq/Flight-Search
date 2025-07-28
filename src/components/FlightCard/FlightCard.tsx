@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Typography,
   Chip,
@@ -12,10 +13,9 @@ import {
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import FlightLandIcon from "@mui/icons-material/FlightLand";
 import FlightTakeOffIcon from "@mui/icons-material/FlightTakeoff";
-import { useState } from "react";
+import { FlexRow, PrimaryButton } from "@/styles/commonStyles";
 import {
   StyledCard,
-  FlexRow,
   AirlineStack,
   TimeBox,
   TimelineWrapper,
@@ -24,7 +24,6 @@ import {
   StopDot,
   PriceBox,
   PriceText,
-  SelectButton,
 } from "./FlightCard.styles";
 
 interface FlightCardProps {
@@ -138,9 +137,13 @@ const FlightCard = ({
             <Typography variant="body2" color="text.secondary" mb={1}>
               per person
             </Typography>
-            <SelectButton variant="contained" size="small" onClick={handleOpen}>
+            <PrimaryButton
+              variant="contained"
+              size="small"
+              onClick={handleOpen}
+            >
               Select Flight
-            </SelectButton>
+            </PrimaryButton>
           </PriceBox>
         </FlexRow>
       </StyledCard>
@@ -172,9 +175,9 @@ const FlightCard = ({
           <Typography>Thank you for selecting this flight! ✈️</Typography>
         </DialogContent>
         <DialogActions>
-          <SelectButton onClick={handleClose} autoFocus variant="contained">
+          <PrimaryButton onClick={handleClose} autoFocus variant="contained">
             Close
-          </SelectButton>
+          </PrimaryButton>
         </DialogActions>
       </Dialog>
     </>

@@ -4,8 +4,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import type { Airport } from "@/types/airport";
 import { airports } from "@/data/mockFlights";
+import { PrimaryButton } from "@/styles/commonStyles";
 import { FormContainer, HeroSection, Wrapper } from "./SearchForm.styles";
-import { SelectButton } from "../FlightCard/FlightCard.styles";
 
 const SearchForm = () => {
   const [from, setFrom] = useState<Airport | null>(null);
@@ -52,7 +52,7 @@ const SearchForm = () => {
             onChange={(_, value) => setTo(value)}
           />
 
-          <SelectButton
+          <PrimaryButton
             variant="contained"
             size="large"
             startIcon={<SearchIcon />}
@@ -60,7 +60,7 @@ const SearchForm = () => {
             disabled={!from || !to}
           >
             Search Flights
-          </SelectButton>
+          </PrimaryButton>
         </Box>
       </FormContainer>
     </Wrapper>

@@ -1,6 +1,5 @@
-// flightCard.styles.ts
 import { styled } from "@mui/material/styles";
-import { Box, Paper, Typography, Button } from "@mui/material";
+import { Box, Paper, Typography } from "@mui/material";
 
 export const StyledCard = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(3),
@@ -8,12 +7,6 @@ export const StyledCard = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.background.paper,
   boxShadow: "0 4px 8px rgba(0,0,0,0.06)",
 }));
-
-export const FlexRow = styled(Box)({
-  display: "flex",
-  justifyContent: "space-between",
-  alignItems: "center",
-});
 
 export const AirlineStack = styled(Box)(({ theme }) => ({
   display: "flex",
@@ -79,13 +72,4 @@ export const PriceText = styled(Typography)(({ theme }) => ({
   fontSize: "1.6rem",
   fontWeight: "bold",
   color: theme.palette.success.main,
-}));
-
-export const SelectButton = styled(Button)(({ theme }) => ({
-  textTransform: "none",
-  backgroundColor: theme.palette.primary.main,
-  color: theme.palette.primary.contrastText,
-  "&:hover": {
-    backgroundColor: theme.palette.primary.dark || "#00994D",
-  },
 }));
