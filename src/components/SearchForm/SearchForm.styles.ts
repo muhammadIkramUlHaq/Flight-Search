@@ -27,3 +27,13 @@ export const HeroSection = styled(Box)(({ theme }) => ({
     height: 100,
   },
 }));
+
+export const SwapButtonWrapper = styled(Box)(() => ({
+  display: "flex",
+  justifyContent: "center",
+}));
+
+export const ButtonWrapper = styled(Box)(() => ({
+  display: "flex",
+  justifyContent: "flex-end",
+}));
