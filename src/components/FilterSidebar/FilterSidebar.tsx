@@ -11,8 +11,10 @@ import type { StopFilter } from "@/types";
 interface FilterSidebarProps {
   selectedStops: StopFilter;
   onChange: (value: StopFilter) => void;
-  stopCounts: Record<string, number>;
+  stopCounts: Record<StopFilter, number>;
 }
+
+const stopOptions: StopFilter[] = ["all", "direct", "1", "2+"];
 
 const FilterSidebar = ({
   selectedStops,
@@ -22,33 +24,29 @@ const FilterSidebar = ({
   return (
     <SidebarWrapper elevation={1}>
       <Typography variant="h6">Filters</Typography>
+
       <Section>
         <SectionTitle>Number of Stops</SectionTitle>
         <FormControl component="fieldset">
           <RadioGroup
             value={selectedStops}
             onChange={(e) => onChange(e.target.value as StopFilter)}
+            aria-label="Stop Filter"
           >
-            <FormControlLabel
-              value="all"
-              control={<Radio />}
-              label={`All flights (${stopCounts.all})`}
-            />
-            <FormControlLabel
-              value="direct"
-              control={<Radio />}
-              label={`Direct flights (${stopCounts.direct})`}
-            />
-            <FormControlLabel
-              value="1"
-              control={<Radio />}
-              label={`1 stop (${stopCounts["1"]})`}
-            />
-            <FormControlLabel
-              value="2+"
-              control={<Radio />}
-              label={`2+ stops (${stopCounts["2+"]})`}
-            />
+            {stopOptions.map((option) => (
+              <FormControlLabel
+                key={option}
+                value={option}
+                control={<Radio />}
+                label={`${
+                  option === "all"
+                    ? "All flights"
+                    : option === "direct"
+                    ? "Direct flights"
+                    : `${option} stop${option === "1" ? "" : "s"}`
+                } (${stopCounts[option]})`}
+              />
+            ))}
           </RadioGroup>
         </FormControl>
       </Section>
