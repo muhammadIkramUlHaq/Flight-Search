@@ -2,7 +2,8 @@ import { useNavigate } from "react-router-dom";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import FmdGoodOutlinedIcon from "@mui/icons-material/FmdGoodOutlined";
 import FilterAltOutlinedIcon from "@mui/icons-material/FilterAltOutlined";
-import { Typography } from "@mui/material";
+import { Typography, useMediaQuery } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 import { getAirportLabel } from "@/utils/utils";
 import { FlexRow, PrimaryButton } from "@/styles/global";
 import {
@@ -20,23 +21,30 @@ interface TopBarProps {
 
 const TopBar = ({ origin, destination, onToggle }: TopBarProps) => {
   const navigate = useNavigate();
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
     <StyledTopBar elevation={1} square>
-      <FlexRow>
+      <FlexRow
+        sx={{ flexWrap: "wrap", rowGap: 1, justifyContent: "space-between" }}
+      >
         <LeftGroup>
           <BackButton
             startIcon={<ArrowBackIcon />}
             onClick={() => navigate("/")}
           >
-            Back to Search
+            {!isMobile && "Back to Search"}
           </BackButton>
-          <LocationGroup>
-            <FmdGoodOutlinedIcon fontSize="small" color="action" />
-            <Typography fontWeight={500}>
-              {getAirportLabel(origin)} → {getAirportLabel(destination)}
-            </Typography>
-          </LocationGroup>
+
+          {!isMobile && (
+            <LocationGroup>
+              <FmdGoodOutlinedIcon fontSize="small" color="action" />
+              <Typography fontWeight={500}>
+                {getAirportLabel(origin)} → {getAirportLabel(destination)}
+              </Typography>
+            </LocationGroup>
+          )}
         </LeftGroup>
 
         <PrimaryButton
@@ -45,7 +53,7 @@ const TopBar = ({ origin, destination, onToggle }: TopBarProps) => {
           startIcon={<FilterAltOutlinedIcon />}
           onClick={onToggle}
         >
-          Filters
+          {!isMobile && "Filters"}
         </PrimaryButton>
       </FlexRow>
     </StyledTopBar>
