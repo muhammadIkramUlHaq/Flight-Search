@@ -6,10 +6,11 @@ import {
   Typography,
 } from "@mui/material";
 import { SidebarWrapper, Section, SectionTitle } from "./FilterSidebar.styles";
+import type { StopFilter } from "@/types";
 
 interface FilterSidebarProps {
-  selectedStops: string;
-  onChange: (value: string) => void;
+  selectedStops: StopFilter;
+  onChange: (value: StopFilter) => void;
   stopCounts: Record<string, number>;
 }
 
@@ -26,7 +27,7 @@ const FilterSidebar = ({
         <FormControl component="fieldset">
           <RadioGroup
             value={selectedStops}
-            onChange={(e) => onChange(e.target.value)}
+            onChange={(e) => onChange(e.target.value as StopFilter)}
           >
             <FormControlLabel
               value="all"

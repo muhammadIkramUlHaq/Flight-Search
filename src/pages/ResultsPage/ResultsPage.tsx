@@ -1,10 +1,11 @@
+import { useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Stack, Typography } from "@mui/material";
-import { useState } from "react";
-import { flights } from "@/data/mockFlights";
 import TopBar from "@/components/TopBar/TopBar";
 import FilterSidebar from "@/components/FilterSidebar/FilterSidebar";
 import FlightCard from "@/components/FlightCard/FlightCard";
+import { flights } from "@/data/mockFlights";
+import type { StopFilter } from "@/types";
 import {
   ContentContainer,
   FlightListWrapper,
@@ -12,50 +13,63 @@ import {
   NoResultBox,
   PageWrapper,
 } from "./ResultsPage.styles";
+import InvalidSearch from "@/components/InvalidSearch/InvalidSearch";
 
 const ResultsPage = () => {
   const [filtersOpen, setFiltersOpen] = useState(true);
-  const [selectedFilter, setSelectedFilter] = useState("all");
+  const [selectedFilter, setSelectedFilter] = useState<StopFilter>("all");
   const [params] = useSearchParams();
 
   const origin = params.get("origin");
   const destination = params.get("destination");
 
-  // Filter flights based on search params and selected filter
-  const filteredFlights = flights.filter((f) => {
-    const baseMatch = f.origin === origin && f.destination === destination;
-    if (!baseMatch) return false;
+  const isValidCode = (code: string | null): code is string =>
+    !!code && /^[A-Z]{3}$/.test(code.toUpperCase());
 
-    if (selectedFilter === "direct") return f.stops === 0;
-    if (selectedFilter === "1") return f.stops === 1;
-    if (selectedFilter === "2+") return f.stops >= 2;
-    return true;
-  });
-
-  // Stop counts for filters
-  const stopCounts = {
-    all: flights.filter(
+  const matchingFlights = useMemo(() => {
+    return flights.filter(
       (f) => f.origin === origin && f.destination === destination
-    ).length,
-    direct: flights.filter(
-      (f) =>
-        f.stops === 0 && f.origin === origin && f.destination === destination
-    ).length,
-    "1": flights.filter(
-      (f) =>
-        f.stops === 1 && f.origin === origin && f.destination === destination
-    ).length,
-    "2+": flights.filter(
-      (f) =>
-        f.stops >= 2 && f.origin === origin && f.destination === destination
-    ).length,
-  };
+    );
+  }, [origin, destination]);
+
+  const stopCounts = useMemo(
+    () => ({
+      all: matchingFlights.length,
+      direct: matchingFlights.filter((f) => f.stops === 0).length,
+      "1": matchingFlights.filter((f) => f.stops === 1).length,
+      "2+": matchingFlights.filter((f) => f.stops >= 2).length,
+    }),
+    [matchingFlights]
+  );
+
+  const filteredFlights = useMemo(() => {
+    switch (selectedFilter) {
+      case "direct":
+        return matchingFlights.filter((f) => f.stops === 0);
+      case "1":
+        return matchingFlights.filter((f) => f.stops === 1);
+      case "2+":
+        return matchingFlights.filter((f) => f.stops >= 2);
+      default:
+        return matchingFlights;
+    }
+  }, [matchingFlights, selectedFilter]);
+
+  if (!isValidCode(origin) || !isValidCode(destination)) {
+    return (
+      <PageWrapper>
+        <ContentContainer maxWidth="md">
+          <InvalidSearch />
+        </ContentContainer>
+      </PageWrapper>
+    );
+  }
 
   return (
     <PageWrapper>
       <TopBar
-        origin={origin || "Origin"}
-        destination={destination || "Destination"}
+        origin={origin}
+        destination={destination}
         onToggle={() => setFiltersOpen((prev) => !prev)}
       />
 
