@@ -5,8 +5,8 @@ import {
   Radio,
   Typography,
 } from "@mui/material";
-import { SidebarWrapper, Section, SectionTitle } from "./FilterSidebar.styles";
 import type { StopFilter } from "@/types";
+import { Section, SectionTitle, SidebarWrapper } from "./FilterSidebar.styles";
 
 interface FilterSidebarProps {
   selectedStops: StopFilter;
