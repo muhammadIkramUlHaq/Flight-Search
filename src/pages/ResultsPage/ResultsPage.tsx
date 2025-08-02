@@ -4,7 +4,7 @@ import { Stack, Typography } from "@mui/material";
 import TopBar from "@/components/TopBar/TopBar";
 import FilterSidebar from "@/components/FilterSidebar/FilterSidebar";
 import FlightCard from "@/components/FlightCard/FlightCard";
-import { flights } from "@/data/mockFlights";
+import { airports, flights } from "@/data/mockFlights";
 import type { StopFilter } from "@/types";
 import {
   ContentContainer,
@@ -20,11 +20,11 @@ const ResultsPage = () => {
   const [selectedFilter, setSelectedFilter] = useState<StopFilter>("all");
   const [params] = useSearchParams();
 
-  const origin = params.get("origin");
-  const destination = params.get("destination");
+  const origin = params.get("origin")?.toUpperCase() || null;
+  const destination = params.get("destination")?.toUpperCase() || null;
 
-  const isValidCode = (code: string | null): code is string =>
-    !!code && /^[A-Z]{3}$/.test(code.toUpperCase());
+  const isKnownAirportCode = (code: string | null): code is string =>
+    !!code && /^[A-Z]{3}$/.test(code) && airports.some((a) => a.code === code);
 
   const matchingFlights = useMemo(() => {
     return flights.filter(
@@ -55,7 +55,7 @@ const ResultsPage = () => {
     }
   }, [matchingFlights, selectedFilter]);
 
-  if (!isValidCode(origin) || !isValidCode(destination)) {
+  if (!isKnownAirportCode(origin) || !isKnownAirportCode(destination)) {
     return (
       <PageWrapper>
         <ContentContainer maxWidth="md">
