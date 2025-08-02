@@ -5,6 +5,7 @@ import Loader from "@/components/Loader";
 // Lazy-loaded pages
 const SearchPage = lazy(() => import("@/pages/SearchPage"));
 const ResultsPage = lazy(() => import("@/pages/ResultsPage"));
+const NotFoundPage = lazy(() => import("@/pages/NotFoundPage"));
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<SearchPage />} />
           <Route path="/results" element={<ResultsPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>
     </BrowserRouter>
