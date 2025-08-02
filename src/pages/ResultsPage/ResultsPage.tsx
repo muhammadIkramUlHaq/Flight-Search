@@ -1,9 +1,9 @@
 import { useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Stack, Typography } from "@mui/material";
-import TopBar from "@/components/TopBar/TopBar";
-import FilterSidebar from "@/components/FilterSidebar/FilterSidebar";
-import FlightCard from "@/components/FlightCard/FlightCard";
+import TopBar from "@/components/TopBar";
+import FilterSidebar from "@/components/FilterSidebar";
+import FlightCard from "@/components/FlightCard";
 import { airports, flights } from "@/data/mockFlights";
 import type { StopFilter } from "@/types";
 import {
