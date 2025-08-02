@@ -1,8 +1,9 @@
+import React from "react";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import SearchForm from "./SearchForm";
 import { MemoryRouter } from "react-router-dom";
-import { airports } from "@/data/mockFlights";
+import { airports } from "../../data";
 
 const renderForm = () =>
   render(

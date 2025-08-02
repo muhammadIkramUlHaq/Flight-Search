@@ -4,7 +4,8 @@ import { Stack, Typography } from "@mui/material";
 import TopBar from "@/components/TopBar";
 import FilterSidebar from "@/components/FilterSidebar";
 import FlightCard from "@/components/FlightCard";
-import { airports, flights } from "@/data/mockFlights";
+import InvalidSearch from "@/components/InvalidSearch";
+import { airports, flights } from "@/data";
 import type { StopFilter } from "@/types";
 import {
   ContentContainer,
@@ -13,7 +14,6 @@ import {
   NoResultBox,
   PageWrapper,
 } from "./ResultsPage.styles";
-import InvalidSearch from "@/components/InvalidSearch/InvalidSearch";
 
 const ResultsPage = () => {
   const [filtersOpen, setFiltersOpen] = useState(true);

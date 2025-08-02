@@ -2,8 +2,8 @@ import { Stack, Typography } from "@mui/material";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import FlightLandIcon from "@mui/icons-material/FlightLand";
 import FlightTakeOffIcon from "@mui/icons-material/FlightTakeoff";
+import { formatDuration } from "@/utils";
 import { TimelineBar, Line, StopDot } from "../FlightCard/FlightCard.styles";
-import { formatDuration } from "@/utils/utils";
 
 interface StopInfoProps {
   stops: number;

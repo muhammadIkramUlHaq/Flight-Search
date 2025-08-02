@@ -1,11 +1,10 @@
 import { memo } from "react";
 import { useMemo, useState } from "react";
 import { Typography, Chip, Divider, Box } from "@mui/material";
+import FlightSummaryDialog from "@/components/FlightSummaryDialog";
+import StopInfo from "@/components/StopInfo";
 import { FlexRow, PrimaryButton } from "@/styles/global";
-import FlightSummaryDialog from "@/components/FlightSummaryDialog/FlightSummaryDialog";
-import StopInfo from "@/components/StopInfo/StopInfo";
-
-import { formatTime } from "@/utils/utils";
+import { formatTime } from "@/utils";
 import {
   StyledCard,
   AirlineStack,

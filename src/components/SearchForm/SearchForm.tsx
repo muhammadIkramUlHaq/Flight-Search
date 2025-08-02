@@ -10,8 +10,8 @@ import {
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import SwapVertIcon from "@mui/icons-material/SwapVert";
-import { airports } from "@/data/mockFlights";
 import { PrimaryButton } from "@/styles/global";
+import { airports } from "@/data";
 import type { Airport } from "@/types";
 import {
   Wrapper,

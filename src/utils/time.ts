@@ -1,10 +1,3 @@
-import { airports } from "@/data/mockFlights";
-
-export const getAirportLabel = (code: string) => {
-  const found = airports.find((a) => a.code === code);
-  return found ? `${found.city} (${found.code})` : code;
-};
-
 export const formatDuration = (minutes: number) => {
   const h = Math.floor(minutes / 60);
   const m = minutes % 60;

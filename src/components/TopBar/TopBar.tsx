@@ -4,8 +4,8 @@ import FmdGoodOutlinedIcon from "@mui/icons-material/FmdGoodOutlined";
 import FilterAltOutlinedIcon from "@mui/icons-material/FilterAltOutlined";
 import { Typography, useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import { getAirportLabel } from "@/utils/utils";
 import { FlexRow, PrimaryButton } from "@/styles/global";
+import { getAirportLabel } from "@/utils";
 import {
   BackButton,
   LeftGroup,

@@ -1,4 +1,3 @@
-import { PrimaryButton } from "@/styles/global";
 import {
   Dialog,
   DialogActions,
@@ -6,6 +5,7 @@ import {
   DialogTitle,
   Typography,
 } from "@mui/material";
+import { PrimaryButton } from "@/styles/global";
 
 interface FlightSummaryDialogProps {
   open: boolean;

@@ -1,6 +1,7 @@
 import { render, screen, fireEvent, act } from "@testing-library/react";
 import FlightCard from "./FlightCard";
-import { formatTime } from "@/utils/utils";
+import { formatTime } from "../../utils";
+import React from "react";
 
 const flight = {
   id: "f1",
