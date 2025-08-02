@@ -1,5 +1,4 @@
-import { styled } from "@mui/material/styles";
-import { Box, Paper, Typography } from "@mui/material";
+import { Box, Paper, Typography, styled } from "@mui/material";
 
 export const StyledCard = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(3),

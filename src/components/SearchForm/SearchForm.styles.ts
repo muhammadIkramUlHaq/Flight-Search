@@ -1,5 +1,4 @@
-import { styled } from "@mui/material/styles";
-import { Box, Paper } from "@mui/material";
+import { Box, Paper, styled } from "@mui/material";
 
 export const Wrapper = styled(Box)(({ theme }) => ({
   minHeight: "100vh",

@@ -1,5 +1,4 @@
-import { styled } from "@mui/material/styles";
-import { Paper, Box, Typography } from "@mui/material";
+import { Paper, Box, Typography, styled } from "@mui/material";
 
 export const SidebarWrapper = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(3),

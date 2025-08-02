@@ -1,5 +1,4 @@
-import { styled } from "@mui/material/styles";
-import { Box, Paper, Button } from "@mui/material";
+import { Box, Paper, Button, styled } from "@mui/material";
 
 export const StyledTopBar = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(2, 3),

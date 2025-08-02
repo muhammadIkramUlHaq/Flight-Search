@@ -1,7 +1,7 @@
 import { Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import { PrimaryButton } from "@/styles/global";
-import { Illustration, Wrapper } from "./InvalidSearch.styles";
+import InvalidSearchIllustration from "@/assets/invalid-search.png";
+import { Illustration, PrimaryButton, Wrapper } from "@/styles/global";
 
 const InvalidSearch = () => {
   const navigate = useNavigate();
@@ -9,7 +9,7 @@ const InvalidSearch = () => {
   return (
     <Wrapper>
       <Illustration
-        src="./invalid-search.png"
+        src={InvalidSearchIllustration}
         alt="Invalid search illustration"
       />
       <Typography variant="h5" gutterBottom>
