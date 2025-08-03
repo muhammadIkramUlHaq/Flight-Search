@@ -91,6 +91,33 @@ This project uses **Jest** with **TypeScript** and **React Testing Library**.
 pnpm run test
 ```
 
+## 📝 Approach & Assumptions
+This application uses mocked datasets for both flights and airports to simulate real-world flight search functionality.
+
+**Key Assumptions:**
+
+The app expects **3-letter IATA airport codes (e.g., JFK, LAX)** for both origin and destination.
+
+- It supports both lowercase and uppercase values for query parameters by internally normalizing all codes to uppercase.
+
+- Users are expected to select valid airports from the autocomplete input on the homepage.
+
+- On clicking the Search Flights button, the app navigates to the /results route with origin and destination as query parameters.
+
+**Validation Rules:**
+
+The /results page validates that both parameters are:
+
+- Present in the URL.
+
+- Valid 3-letter codes.
+
+- Exist in the provided airport list.
+
+If any of these conditions fail, the app shows an "Invalid search query" message and prompts the user to go back and select correct values.
+
+This approach enforces robust query validation while maintaining flexibility in how users input data.
+
 ## 🔍 Search Query Examples
 
 The results page accepts **3-letter IATA airport codes** as query parameters for both origin and destination.
