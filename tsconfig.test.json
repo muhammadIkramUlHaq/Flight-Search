@@ -18,6 +18,7 @@
     "src",
     "__mocks__",
     "jest.setup.ts",
+    "jest.config.ts",
     "images.d.ts"
   ]
 }

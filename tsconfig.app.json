@@ -24,6 +24,6 @@
       "@/*": ["*"]
     }
   },
-  "include": ["src", "jest.config.mjs"],
+  "include": ["src"],
   "exclude": ["**/*.test.ts", "**/*.test.tsx", "jest.setup.ts"]
 }
