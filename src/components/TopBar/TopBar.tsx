@@ -26,9 +26,7 @@ const TopBar = ({ origin, destination, onToggle }: TopBarProps) => {
 
   return (
     <StyledTopBar elevation={1} square>
-      <FlexRow
-        sx={{ flexWrap: "wrap", rowGap: 1, justifyContent: "space-between" }}
-      >
+      <FlexRow>
         <LeftGroup>
           <BackButton
             startIcon={<ArrowBackIcon />}

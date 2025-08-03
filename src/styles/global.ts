@@ -9,11 +9,13 @@ export const PrimaryButton = styled(Button)(({ theme }) => ({
   },
 }));
 
-export const FlexRow = styled(Box)({
+export const FlexRow = styled(Box)(({ theme }) => ({
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
-});
+  flexWrap: "wrap",
+  rowGap: theme.spacing(1),
+}));
 
 export const Wrapper = styled(Box)(({ theme }) => ({
   textAlign: "center",
