@@ -6,11 +6,18 @@
     "jsx": "react-jsx",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
     "types": ["jest", "@testing-library/jest-dom"],
     "baseUrl": "src",
     "paths": {
       "@/*": ["*"]
     }
   },
-  "include": ["src/**/*.test.ts", "src/**/*.test.tsx", "jest.setup.ts"]
+  "include": [
+    "src",
+    "__mocks__",
+    "jest.setup.ts",
+    "images.d.ts"
+  ]
 }
