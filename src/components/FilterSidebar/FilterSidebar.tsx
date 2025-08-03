@@ -14,7 +14,11 @@ interface FilterSidebarProps {
   stopCounts: Record<StopFilter, number>;
 }
 
-const stopOptions: StopFilter[] = ["all", "direct", "1", "2+"];
+const stopOptions: StopFilter[] = ["all", "direct", "1", "2+"] as const;
+
+const isStopFilter = (value: string): value is StopFilter => {
+  return stopOptions.includes(value as StopFilter);
+};
 
 const FilterSidebar = ({
   selectedStops,
@@ -30,7 +34,12 @@ const FilterSidebar = ({
         <FormControl component="fieldset">
           <RadioGroup
             value={selectedStops}
-            onChange={(e) => onChange(e.target.value as StopFilter)}
+            onChange={(e) => {
+              const value = e.target.value;
+              if (isStopFilter(value)) {
+                onChange(value);
+              }
+            }}
             aria-label="Stop Filter"
           >
             {stopOptions.map((option) => (
