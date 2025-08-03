@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import SwapVertIcon from "@mui/icons-material/SwapVert";
-import { PrimaryButton } from "@/styles/global";
+import { Illustration, PrimaryButton } from "@/styles/global";
 import { airports } from "@/data";
 import type { Airport } from "@/types";
 import {
@@ -55,8 +55,8 @@ const SearchForm = () => {
   return (
     <Wrapper>
       <HeroSection>
-        <img src="/flight-search-icon.svg" alt="Flight Icon" />
-        <Typography variant="h4" fontWeight="bold" mt={1}>
+        <Illustration src="/flight-search-icon.svg" alt="Flight Icon" />
+        <Typography variant="h5" fontWeight="bold">
           Find Your Perfect Flight
         </Typography>
         <Typography variant="body1" color="text.secondary">

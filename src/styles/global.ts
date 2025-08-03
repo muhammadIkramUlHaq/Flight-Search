@@ -30,5 +30,4 @@ export const Wrapper = styled(Box)(({ theme }) => ({
 export const Illustration = styled("img")({
   width: 200,
   height: "auto",
-  marginBottom: 24,
 });
